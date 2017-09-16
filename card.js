@@ -13,17 +13,13 @@ import { Icon } from 'react-native-elements';
 import * as firebase from 'firebase';
 import base64 from 'base-64';
 
-// Gets Dimensions of User Screen
 const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   card: {
     position: 'absolute',
     width: width - 20,
-    // Height is 70% of screen
     height: height * 0.82,
-    // Adds top margin to Card
-    // top: (height * 0.3) / 2,
     overflow: 'hidden',
     backgroundColor: 'white',
     margin: 10,
@@ -77,7 +73,6 @@ export default class Card extends Component {
   render() {
     // Expands profile prop into individual variables values
     const { title, price, description, imageByteArray, uid, first_name } = this.props.profile;
-    // console.log('PROPS', this.props.profile);
     let decodedImageByteArray = base64.decode(imageByteArray);
     // Interpolates touch gesture values to degrees
     const rotateCard = this.pan.x.interpolate({
